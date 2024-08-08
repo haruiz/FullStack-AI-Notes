@@ -1,0 +1,20 @@
+project:
+  type: book
+
+book:
+  title: "Fullstack-AI Course"
+  author: "Henry A. Ruiz Guzman,PhD"
+  date: "8/8/2024"
+  chapters:
+    - index.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: flatly
+  pdf:
+    documentclass: scrreprt
+
+
+
