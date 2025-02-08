@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fullstack-AI Course - 3&nbsp; Python for ML &amp; Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../foundations/webservices-apis/intro.html" rel="next">
+<link href="../../foundations/shells-terminals/intro.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../foundations/system-design/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../foundations/python/intro.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for ML &amp; Data Science</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Fullstack-AI Course</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/system-design/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">System Design</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/shells-terminals/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminals, Shells and Command Line Tools</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/python/intro.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for ML &amp; Data Science</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../foundations/webservices-apis/intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Web Services and APIs</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">3.1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#why-should-i-learn-how-to-program" id="toc-why-should-i-learn-how-to-program" class="nav-link" data-scroll-target="#why-should-i-learn-how-to-program"><span class="header-section-number">3.1.1</span> Why should I learn how to program?</a></li>
+  <li><a href="#programming-languages-for-data-science" id="toc-programming-languages-for-data-science" class="nav-link" data-scroll-target="#programming-languages-for-data-science"><span class="header-section-number">3.1.2</span> Programming languages for data science</a></li>
+  </ul></li>
+  <li><a href="#why-python" id="toc-why-python" class="nav-link" data-scroll-target="#why-python"><span class="header-section-number">3.2</span> Why Python?</a></li>
+  <li><a href="#python-installation" id="toc-python-installation" class="nav-link" data-scroll-target="#python-installation"><span class="header-section-number">3.3</span> Python Installation</a></li>
+  <li><a href="#pyenv" id="toc-pyenv" class="nav-link" data-scroll-target="#pyenv"><span class="header-section-number">3.4</span> Pyenv</a>
+  <ul class="collapse">
+  <li><a href="#util-commands" id="toc-util-commands" class="nav-link" data-scroll-target="#util-commands"><span class="header-section-number">3.4.1</span> Util commands</a></li>
+  </ul></li>
+  <li><a href="#python-dependency-hell" id="toc-python-dependency-hell" class="nav-link" data-scroll-target="#python-dependency-hell"><span class="header-section-number">3.5</span> Python Dependency hell</a>
+  <ul class="collapse">
+  <li><a href="#virtual-environments-to-the-rescue" id="toc-virtual-environments-to-the-rescue" class="nav-link" data-scroll-target="#virtual-environments-to-the-rescue"><span class="header-section-number">3.5.1</span> Virtual environments to the rescue!</a></li>
+  </ul></li>
+  <li><a href="#poetry" id="toc-poetry" class="nav-link" data-scroll-target="#poetry"><span class="header-section-number">3.6</span> Poetry</a>
+  <ul class="collapse">
+  <li><a href="#util-commands-1" id="toc-util-commands-1" class="nav-link" data-scroll-target="#util-commands-1"><span class="header-section-number">3.6.1</span> Util commands</a></li>
+  </ul></li>
+  <li><a href="#python-syntax" id="toc-python-syntax" class="nav-link" data-scroll-target="#python-syntax"><span class="header-section-number">3.7</span> Python Syntax</a>
+  <ul class="collapse">
+  <li><a href="#creating-variables" id="toc-creating-variables" class="nav-link" data-scroll-target="#creating-variables"><span class="header-section-number">3.7.1</span> Creating variables</a></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">3.7.2</span> Data types</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../foundations/system-design/index.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../foundations/python/intro.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for ML &amp; Data Science</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Python for ML &amp; Data Science</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">3.1</span> Introduction</h2>
+<p>Programming is an essential skill for data scientists. If you are considering starting a data science career, the sooner you learn how to code, the better it will be. Most data sciences jobs rely on programming to automate cleaning and organizing data sets, design databases, fine-tune machine learning algorithms, etc. Therefore, having some experience in programming Languages such as Python, R, and SQL makes your life easier and will allow you to automate your analysis pipelines.</p>
+<p>In this section, we will focus on Python. A general-purpose programming language that allows us to work with data and explore different algorithms and techniques that would be extremely useful to add to our analysis toolbox.</p>
+<section id="why-should-i-learn-how-to-program" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="why-should-i-learn-how-to-program"><span class="header-section-number">3.1.1</span> Why should I learn how to program?</h3>
+<p>A data scientist is a technical expert who uses mathematical and statistical techniques to manipulate, analyze, and extract patterns from raw or noisy data to produce valuable information that can help organizations make better decisions. They use a range of tools, including statistical inference, pattern recognition, machine learning, deep learning, and more, and some of their responsibilities include:</p>
+<ul>
+<li>Work closely with business stakeholders to understand their goals and determine how data can be used to achieve them.<br>
+</li>
+<li>Fetching information from various sources and analyzing it to get a clear understanding of how an organization performs</li>
+<li>Undertaking data collection, preprocessing, and analysis</li>
+<li>Building models to address business problems</li>
+<li>Presenting information in a way that your audience can understand using different data visualization techniques</li>
+</ul>
+<p>Programming skills provide data scientists with the superpowers to automate these tasks. Although programming is not required to be a data scientist, taking advantage of the power of computers, it can facilitate the process of manipulating, processing, and analyzing big datasets, automate and develop computational algorithms to produce results (faster and more effectively), and create neat visualizations to present the data more intuitively.</p>
+</section>
+<section id="programming-languages-for-data-science" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="programming-languages-for-data-science"><span class="header-section-number">3.1.2</span> Programming languages for data science</h3>
+<p>There are hundreds of programming languages out there, built for diverse purposes. Some are better suited for web or mobile development, others for data analysis, etc. Choosing the correct language to use will depend on your level of experience, role, and/or project goals. In the last few years, Python has been ranked as one of the top programming languages data scientists use to manipulate, process, and analyze big datasets.</p>
+<p>But why is Python so popular? Well, I will list some reasons why data scientists love Python and what makes this language suitable for high productivity and performance in processing large amounts of data.</p>
+</section>
+</section>
+<section id="why-python" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="why-python"><span class="header-section-number">3.2</span> Why Python?</h2>
+<p>In the 2022 Stack Overflow Developer Survey, Python emerged as one of the most commonly used programming languages worldwide. Out of 71,467 responses, 68% of developers stated their love for the language and their intention to continue working with it. Additionally, around 12,000 respondents expressed their interest in learning and using Python. Python’s immense popularity stems from its simple syntax, versatility, and expressiveness. If you are considering a data science project, Python offers a range of features that you may find useful. Here is a list of features that can give you an insight into why Python may be a good choice for your next project.</p>
+<ul>
+<li><p>Python is <strong>open source</strong>, so is freely available to everyone.You can even use it to develop commercial applications.</p></li>
+<li><p>Python is <strong>Multi-Platform</strong>. It can be run on any platform, including Windows, Mac, Linux, and Raspberry Pi.</p></li>
+<li><p>Python is a <strong>Multi-paradigm</strong> language, which means it can be used for both object-oriented and functional programming. It comes from you writing code in a way that is easy to read and understand.</p></li>
+<li><p>Python is <strong>Multi-purpose</strong>, so you can use it to develop almost any kind of application. You can use it to develop web applications, game development, data analysis, machine learning, and much more.</p></li>
+<li><p>Python syntax is <strong>easy to read</strong> and <strong>easy to write</strong>. So the learning curve is low in comparison to other languages.</p></li>
+<li><p>Data Science <strong>packages ecosystem</strong>: Python also has <a href="https://pypi.org/">PyPI package index,a python package repository</a>, where you can find many useful packages (Tensorflow, pandas, NumPy, etc.), which facilitates and speeds up your project’s development. In PyPI, you can also publish your packages and share them with the community. The ecosystem keeps growing fast, and big companies like Google, Facebook, and IBM contribute by adding new packages.Some of the most used libraries for data science and machine learning are:</p>
+<ul>
+<li><a href="https://www.tensorflow.org/">Tensorflow</a>, a high-performance numerical programming library for deep learning.</li>
+<li><a href="https://pandas.pydata.org/">Pandas</a>, a Python library for data analysis and manipulation.</li>
+<li><a href="https://www.numpy.org/">NumPy</a>, a Python library for scientific computing ( that offers an extensive collection of advanced mathematical functions, including linear algebra, Fourier transforms, random number generation, etc.)</li>
+<li><a href="https://matplotlib.org/">Matplotlib</a>, a Python library for plotting graphs and charts.</li>
+<li><a href="https://scikit-learn.org/stable/index.html">Scikit-learn</a>, a Python library for machine learning.</li>
+<li><a href="https://seaborn.pydata.org/">Seaborn</a>, a Python library for statistical data visualization.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Python Package Index, abbreviated as PyPI and also known as the Cheese Shop (a reference to the Monty Python’s Flying Circus sketch “Cheese Shop”), is the official third-party software repository for Python. It is analogous to the CPAN repository for Perl and to the CRAN repository for R.<a href="#wikipedia:1">[1]</a></p>
+</div>
+</div></li>
+<li><p><strong>High performance:</strong> Although some people complain about performance in Python (see <a href="https://towardsdatascience.com/why-is-python-so-slow-and-how-to-speed-it-up-485b5a84154e">Why Python is so slow and how to speed it up</a>), mainly caused by some features such as dynamic typing, it is also simple to extend developing modules in other compiled languages like C++ or C which could <a href="https://towardsdatascience.com/write-your-own-c-extension-to-speed-up-python-x100-626bb9d166e7">speed up your code by 100x.</a></p></li>
+</ul>
+<p>After having a brief overview of Python, let’s move on to the next sections, where we will learn how to install Python and how to use it to perform some basic operations.</p>
+</section>
+<section id="python-installation" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="python-installation"><span class="header-section-number">3.3</span> Python Installation</h2>
+<p>To check if Python is already installed on our machines, open a terminal in your computer and type the command <code>Python --version</code> or <code>Python3 --version</code>. You will see the Python version if it is installed. Otherwise, you will get an error <code>command not found</code> or similar. If you dont have Python installed on your computer, the most straightforward way to do so is to download it from the <a href="https://www.python.org/downloads/">official website</a>. Although this is a simple process, some tools such as <code>pyenv</code> and <code>anaconda</code> enable you to run multiple versions of Python on the same machine so you can switch between versions of Python according to your project’s requirements. In the code examples presented in this material, we will use <code>Pyenv</code> to manage our Python installations.</p>
+<div id="cell-2" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bat&quot;}" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>python <span class="op">--</span>version</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Python 3.10.9</code></pre>
+</div>
+</div>
+</section>
+<section id="pyenv" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="pyenv"><span class="header-section-number">3.4</span> Pyenv</h2>
+<p>Pyenv is a <a href="../../foundations/terminals-intro/intro.html#command-line-tools">command line tool</a> that enables you to have and operate multiple installations of Python on the same machine. If you come from a background in javascript, you may find that <code>pyenv</code> is similar to <code>nvm (Node Version Manager)</code>. We suggest referring to the official <a href="https://github.com/pyenv/pyenv">documentation</a> for instructions on how to install pyenv. Alternatively, if you’re using Windows, you can use <a href="https://github.com/pyenv-win/pyenv-win">pyenv-win</a>. However, we’ll provide a brief summary of the installation process here.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pyenv</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://pyenv.run <span class="kw">|</span> <span class="fu">bash</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After having installed pyenv, you can then install any python version running the command <code>pyenv install &lt;version&gt;</code>. For example, to install Python 3.9.7, you would run <code>pyenv install 3.9.7</code>. You can then set the global version of Python to be used by running <code>pyenv global 3.9.7</code>. You can also set the local version of Python to be used in a specific directory by running <code>pyenv local 3.9.7</code>. The global version of Python is the version that will be used by default in your machine, while the local version is the version that will be used in the directory where you run the command.Pyenv will automatically set the local version of Python when you enter the directory where you have set the local version.</p>
+<section id="util-commands" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="util-commands"><span class="header-section-number">3.4.1</span> Util commands</h3>
+<ul>
+<li><code>pyenv versions</code>: List all the versions of Python installed on your machine.</li>
+<li><code>pyenv global</code>: Show the global version of Python.</li>
+<li><code>pyenv local</code>: Show the local version of Python.</li>
+<li><code>pyenv uninstall &lt;version&gt;</code>: Uninstall a specific version of Python.</li>
+<li><code>pyenv rehash</code>: Rehash pyenv shims (run this command after installing a new version of Python).</li>
+<li><code>pyenv version</code>: Show the current version of Python.</li>
+<li><code>pyenv which python</code>: Show the path of the current Python executable.</li>
+<li><code>pyenv which pip</code>: Show the path of the current pip executable.</li>
+<li><code>pyenv help</code>: Show the list of available commands.</li>
+<li><code>pyenv shell &lt;version&gt;</code>: Set the shell version of Python.</li>
+</ul>
+</section>
+</section>
+<section id="python-dependency-hell" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="python-dependency-hell"><span class="header-section-number">3.5</span> Python Dependency hell</h2>
+<p>Well, it sounds like Python is amazing! However, if you have been using Python for a while, you may have already noticed that handling different python-installations and dependencies(packages) can be a nightmare! An issue commonly known as dependency hell, which is a term associated with the frustration arising from problems managing our project’s dependencies.</p>
+<p>Dependency hell in Python often happens because pip does not have a dependency resolver and because all dependencies are shared across projects. So, other projects could be affected when a given dependency may need to be updated or uninstalled.</p>
+<p>On top of it, since Python doesn’t distinguish between different versions of the same library in the <code>/site-packages</code> directory, this leads to many conflicts when you have two projects requiring different versions of the same library or the global installation doesn’t match.</p>
+<p>Thus, having tools that enable us to isolate and manage our project’s dependencies is highly convenient.</p>
+<section id="virtual-environments-to-the-rescue" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="virtual-environments-to-the-rescue"><span class="header-section-number">3.5.1</span> Virtual environments to the rescue!</h3>
+<p>Python virtual environment is a separate folder where only your project’s dependencies(packages) are located. Each virtual environment has its own Python binary (which matches the version of the binary that was used to create this environment) and its own independent set of installed Python packages in its site directories. That is a very convenient way to prevent <code>Dependency Hell.</code></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Python virtual environment allows multiple versions of Python to coexist in the same machine, so you can test your application using different Python versions. It also keeps your project’s dependencies isolated, so they don’t interfere with the dependencies of others projects.</p>
+</div>
+</div>
+<p>There are different tools out there that can be used to create Python virtual environments. In this post, I will show you how to use pyenv and poetry. However, you can also try other tools, such as <a href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> or anaconda, and based on your experience, you can choose that one you feel most comfortable with. the video below will provide you with more information about these kinds of tools.</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/3J02sec99RM" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+</section>
+</section>
+<section id="poetry" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="poetry"><span class="header-section-number">3.6</span> Poetry</h2>
+<p>Poetry is a tool that allows you to manage your project’s dependencies and facilitates the process of packaging for distribution. It resolves your project dependencies and makes sure that there are no conflicts between them. Poetry integrates with the <a href="https://pypi.org/">PyPI</a> package index to find and install your environment dependencies, and pyenv to set your project python runtime.</p>
+<p>To install poetry we follow the steps below:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install poetry</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-sSL</span> https://install.python-poetry.org <span class="kw">|</span> <span class="ex">python3</span> <span class="at">-</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="util-commands-1" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="util-commands-1"><span class="header-section-number">3.6.1</span> Util commands</h3>
+<ul>
+<li><code>poetry new &lt;project-name&gt;</code>: Create a new project.</li>
+<li><code>poetry new &lt;project-name&gt; --src</code>: Create a new project with a <code>src</code> directory.</li>
+<li><code>poetry install</code>: Install the project dependencies from the <code>pyproject.toml</code> file.</li>
+<li><code>poetry add &lt;package-name&gt;</code>: Add a new package to the project.</li>
+<li><code>poetry remove &lt;package-name&gt;</code>: Remove a package from the project.</li>
+<li><code>poetry update</code>: Update the project dependencies.</li>
+<li><code>poetry run &lt;command&gt;</code>: Run a command in the project’s virtual environment.</li>
+<li><code>poetry shell</code>: Activate the project’s virtual environment.</li>
+<li><code>poetry build</code>: Build the project.</li>
+<li><code>poetry publish</code>: Publish the project to PyPI.</li>
+<li><code>poetry version</code>: Show the current version of poetry.</li>
+<li><code>poetry help</code>: Show the list of available commands.</li>
+</ul>
+<p>If you were able to run the previous commands, we can then move forward with the rest of the tutorial. Lets now then create a new project using poetry and pyenv.For this example we will create a project called <code>my_project</code> and we will use Python 3.9.7 as the project’s python version. We will also add the <code>numpy</code> package to the project’s dependencies.</p>
+<p><strong>Step by step: Creating a new project using poetry and pyenv</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pyenv</span> install 3.9.7 <span class="co"># install python 3.9.7 in your machine</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> my_project <span class="co"># create a new directory called my_project</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> my_project <span class="co"># enter the my_project directory</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">pyenv</span> local 3.9.7 <span class="co"># set the local version of python to be used in this directory</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> config virtualenvs.in-project true <span class="co"># set the virtual environment to be created in the project's root</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> init <span class="at">-n</span> <span class="co"># create a new project with default settings</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry</span> add numpy <span class="co"># add numpy to the project's dependencies</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> main.py <span class="co"># create a new file called main.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>After running the previous commands, you will have a new project with the following structure:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">my_project</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pyproject.toml</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">poetry.lock</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">main.py</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that if you want <code>poetry</code> to create the <code>virtual environment(.venv)</code> directory in the project’s root, you must change the <code>virtualenvs.in-project</code> setting to <code>true</code> by running the command <code>poetry config virtualenvs.in-project true</code>. This command only needs to be run once, and it will be define globally for all projects.</p>
+</div>
+</div>
+<p>The primary file for your poetry project is the <code>pyproject.toml</code> file. This file contains the necessary information about your project’s dependencies (Python packages) and also holds the required metadata for packaging, if needed. Every time a new Python package is installed, Poetry automatically updates this file. By sharing this file with others, they can recreate the project environment and run your application. To do so, they will need to have Poetry installed on their system and run the command <code>poetry install</code> within the same folder where the <code>pyproject.toml</code> file is located.</p>
+<p>Now our <code>pyproject.toml</code> file looks like:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode toml code-with-copy"><code class="sourceCode toml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">[tool.poetry]</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dt">name</span> <span class="op">=</span> <span class="st">"myproject"</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="dt">version</span> <span class="op">=</span> <span class="st">"0.1.0"</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="dt">description</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="dt">authors</span> <span class="op">=</span> <span class="op">[</span><span class="er">`Henry</span> <span class="er">Ruiz</span>  <span class="er">&lt;henry.ruiz.tamu@gmail.com&gt;`</span><span class="op">]</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="kw">[tool.poetry.dependencies]</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="dt">python</span> <span class="op">=</span> <span class="st">"^3.9.7"</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="dt">numpy</span> <span class="op">=</span> <span class="st">"^1.23.1"</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="kw">[tool.poetry.dev-dependencies]</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="dt">pytest</span> <span class="op">=</span> <span class="st">"^5.2"</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">[build-system]</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="dt">requires</span> <span class="op">=</span> <span class="op">[</span><span class="st">"poetry-core&gt;=1.0.0"</span><span class="op">]</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="dt">build-backend</span> <span class="op">=</span> <span class="st">"poetry.core.masonry.api"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Lest review that file sections:</p>
+<ul>
+<li><strong>[tool.poetry]:</strong> This section contains informational metadata about our package, such as the package name, description, author details, etc. Most of the config values here are optional unless you’re planning on publishing this project as an official PyPi package.</li>
+<li><strong>[tool.poetry.dependencies]:</strong> This section defines the dependencies of your project. Here is where you define the python packages that your project requires to run. We can update this file manually if it is needed.</li>
+<li><strong>[tool.poetry.dev-dependencies]:</strong> This section defines the dev dependencies of your project. These dependencies are not required for your project to run, but they are useful for development.</li>
+<li><strong>[build-system]:</strong> This is rarely a section you’ll need to touch unless you upgrade your version of Poetry.</li>
+</ul>
+<p>To see in a nicer format the dependencies of your project, you can use the command <code>poetry show --tree</code>. This command draws a graph of all of our dependencies as well as the dependencies of our dependencies. If we are not sure at some point that we have the latest version of a dependency, we can tell poetry to check on our package repository if there is a new version by using <code>--latest</code> option (<code>poetry show --latest</code>).</p>
+</section>
+</section>
+<section id="python-syntax" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="python-syntax"><span class="header-section-number">3.7</span> Python Syntax</h2>
+<p>lets open the <code>main.py</code> file and write our first Python code. We will start by printing the message “Hello, World!” to the console. To do so, we will use the <code>print</code> function as follows:</p>
+<div id="cell-5" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bat&quot;}" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Hello, World!"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello, World!</code></pre>
+</div>
+</div>
+<section id="creating-variables" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="creating-variables"><span class="header-section-number">3.7.1</span> Creating variables</h3>
+<p>Python is a dynamically typed language, which means that you don’t need to declare the type of a variable when you create one. The type of the variable will be determined by the value assigned to it during runtime. Python has a built-in function called <code>type</code> that allows you to check the type of a variable. For example, to check the type of a variable <code>x</code>, you would write <code>type(x)</code>.</p>
+<div id="cell-7" class="cell" data-vscode="{&quot;languageId&quot;:&quot;bat&quot;}" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span> <span class="co"># define a variable</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">10</span> <span class="co"># define another variable</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> a <span class="op">+</span> b <span class="co"># assign a computation result to a variable x</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(x)) <span class="co"># check the type of x</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(x)) <span class="co"># check the memory address of x</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x) <span class="co"># print the value of x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'int'&gt;
+4363272880
+15</code></pre>
+</div>
+</div>
+</section>
+<section id="data-types" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.7.2</span> Data types</h3>
+<p>Python has several built-in primitive data types, such as <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>. In addition to these, it also has several built-in collection data types, such as <code>list</code>, <code>tuple</code>, <code>set</code>, and <code>dict</code>. We will cover these data types in more detail in the next sections.</p>
+<p><strong>Some useful resources</strong></p>
+<ul>
+<li><a href="https://www.pythoncheatsheet.org/cheatsheet/basics">Best Python cheat sheets</a></li>
+<li><a href="https://docs.python.org/3/tutorial/">Python Tutorial</a></li>
+<li><a href="https://docs.python.org/3/reference/">Python Language Reference</a></li>
+<li><a href="https://jakevdp.github.io/PythonDataScienceHandbook/">Python Data Science Handbook</a></li>
+<li><a href="https://www.dqindia.com/coding-important-data-science/">Why Coding is important in Data Science</a></li>
+<li><a href="https://www.geeksforgeeks.org/python-for-data-science/">Python for Data Science</a></li>
+<li><a href="https://www.datacamp.com/blog/top-programming-languages-for-data-scientists-in-2022">Top programming languages for data scientists in 2022</a></li>
+<li><a href="https://towardsdatascience.com/why-is-python-so-slow-and-how-to-speed-it-up-485b5a84154e">Why Python is so slow and how to speed it up</a></li>
+<li><a href="https://towardsdatascience.com/write-your-own-c-extension-to-speed-up-python-x100-626bb9d166e7">Write Your Own C-extension to Speed Up Python by 100x</a></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../foundations/shells-terminals/intro.html" class="pagination-link" aria-label="Terminals, Shells and Command Line Tools">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Terminals, Shells and Command Line Tools</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../foundations/webservices-apis/intro.html" class="pagination-link" aria-label="Web Services and APIs">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Web Services and APIs</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
